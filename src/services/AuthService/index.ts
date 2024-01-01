@@ -7,9 +7,6 @@ class AuthService {
     }
 
     _userId(userId: any) {
-        if (typeof window === 'undefined') {
-            return
-        }
         if (typeof userId !== 'undefined') {
             sessionStorage.setItem('uid', userId);
             return

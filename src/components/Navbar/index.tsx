@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useAuthState, useAuthDispatch } from "@/contexts/AuthContext";
@@ -15,14 +15,16 @@ export default function Navbar() {
             Home
           </Link>
         </li>
-        {isLogin && <li>
-          <Link
-            href="/dashboard"
-            className={`link ${pathname === "/dashboard" ? "active" : ""}`}
-          >
-            Dashboard
-          </Link>
-        </li>}
+        {isLogin && (
+          <li>
+            <Link
+              href="/dashboard"
+              className={`link ${pathname === "/dashboard" ? "active" : ""}`}
+            >
+              Dashboard
+            </Link>
+          </li>
+        )}
         {isLogin && (
           <li>
             <a

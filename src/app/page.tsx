@@ -1,19 +1,16 @@
-'use client'
-import Image from 'next/image'
-import styles from './page.module.css'
-import Navbar from '@/components/Navbar'
-// import { useAuthState } from '@/contexts/AuthContext'
-import Link from 'next/link'
+"use client";
+import dynamic from "next/dynamic";
 
-export default function Home() {
-  // const { isLogin } = useAuthState();
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false, });
+const HomeContent = dynamic(() => import("@/components/HomeContent"), {ssr: false})
+
+const Home =  () => {
   return (
     <div>
       <Navbar />
-      <div className={styles.main}>
-      {/* {isLogin && <div>Yeah!Now you are logged in</div>}
-     {!isLogin && <div>Haven't login, Go to <Link href="/login">Login</Link></div>} */}
-      </div>
+      <HomeContent />
     </div>
-  )
+  );
 }
+
+export default Home

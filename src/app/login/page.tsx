@@ -1,9 +1,11 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import { useAuthDispatch } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const { onLoginFormChange, onLogin } = useAuthDispatch();
+  const router = useRouter();
   return (
     <div>
       <Navbar />
@@ -18,11 +20,15 @@ export default function Login() {
           placeholder="password"
           onChange={onLoginFormChange}
         ></input>
-        <button onClick={() => {
-          onLogin().then(() => {
-            window.location.href = "/dashboard"
-          })
-        }}>Login</button>
+        <button
+          onClick={() => {
+            onLogin().then(() => {
+              router.push("/dashboard");
+            });
+          }}
+        >
+          Login
+        </button>
       </div>
     </div>
   );
