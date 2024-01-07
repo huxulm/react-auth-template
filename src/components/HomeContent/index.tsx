@@ -10,7 +10,7 @@ export default function HomeContent() {
       {isLogin && <div>Yeah!Now you are logged in</div>}
       {!isLogin && (
         <div>
-          Haven't login, Go to <Link href="/login">Login</Link>
+          {`Haven't login, Go to`} <Link href="/login">Login</Link>
         </div>
       )}
     </div>
